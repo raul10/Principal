@@ -1,0 +1,35 @@
+﻿@model PropertyListModel
+@{
+    ViewData["Title"] = Localizer["Title"];
+
+    <partial name="_CriteriaButtonPartial" for="Criteria" />
+    <a asp-action="Create" class="btn btn-primary">
+        @Localizer["Create"]
+    </a>
+    <div class="table-responsive">
+        <table class="table table-hover mt-3">
+            <thead>
+                <tr>
+                    <th>@Localizer["Id"]</th>
+                    <th>@Localizer["PropertyType"]</th>
+                    <th>@Localizer["Area"]</th>
+                    <th>@Localizer["Price"]</th>
+                    <th>@Localizer["Status"]</th>
+                    <th>
+                        @Localizer["Modified"]
+                        <i class="fa fa-sort-numeric-desc"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.DisplayFor(x => x.Properties.Items)
+            </tbody>
+        </table>
+    </div>
+    <partial name="_PaginationPartial" model="Model.Properties" />
+    <partial name="_EmptyResultPartial" model="Model.Properties" />
+    <partial name="_CriteriaModalPartial" />
+    @section Scripts {
+        <partial name="_CriteriaScriptsPartial" />
+    }
+ }

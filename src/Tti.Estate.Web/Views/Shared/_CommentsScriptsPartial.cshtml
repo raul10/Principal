@@ -1,0 +1,15 @@
+@model CommentListRequestModel
+<script>
+    $(function () {
+        var modal$ = $('#addCommentModal');
+
+        $('#addCommentButton').click(function () {
+            $.get('@Url.Action("Create", "Comment", Model)', function (data) {
+                $content = $('.modal-content', modal$).html(data);
+
+                $.validator.unobtrusive.parse($content);
+                modal$.modal('show');
+            });
+        });
+    });
+</script>

@@ -1,0 +1,15 @@
+﻿@model CustomerModel
+<div class="form-group row">
+    <label asp-for="UserId" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-9">
+        <select asp-for="UserId" asp-items="Model.Users" class="form-control"></select>
+        <span asp-validation-for="UserId"></span>
+    </div>
+</div>
+<fieldset>
+    <legend>@Html.DisplayNameFor(x => x.Description)</legend>
+    <div class="form-group">
+        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="Description"></span>
+    </div>
+</fieldset>

@@ -1,0 +1,26 @@
+@using System.Security.Principal
+<li class="nav-item dropdown">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/admin-layout/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+        <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+            <span class="with-arrow"><span class="bg-primary"></span></span>
+            <div class="d-flex no-block align-items-center p-15 bg-primary text-white mb-2">
+                <div class=""><img src="/admin-layout/assets/images/users/1.jpg" alt="user" class="img-circle" width="60"></div>
+                <div class="ml-2">
+                    <h4 class="mb-0">@User.Identity.Name</h4>
+                    <p class=" mb-0"><a href="#" class="__cf_email__"> @Localizer["emailaddress"]</a></p>
+                </div>
+            </div>
+            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user mr-1 ml-1"></i>@Localizer["MyProfile"] </a>
+            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet mr-1 ml-1"></i>@Localizer["MyBalance"] </a>
+            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email mr-1 ml-1"></i>@Localizer["Inbox"]</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings mr-1 ml-1"></i>@Localizer["AccountSetting"] </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" asp-controller="Account" asp-action="Logout" title="@Localizer["SignOut"]"><i class="fa fa-power-off mr-1 ml-1"></i> @Localizer["SignOut"]</a>
+            <div class="dropdown-divider"></div>
+            <div class="pl-4 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">@Localizer["ViewProfile"]</a></div>
+        </div>
+    }
+    </li>

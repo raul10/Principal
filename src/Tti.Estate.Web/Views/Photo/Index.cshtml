@@ -1,0 +1,57 @@
+﻿@model PhotoIndexModel
+@{
+    ViewData["Title"] = Localizer["Title"];
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Property" asp-action="Details" asp-route-id="@Model.PropertyId">@Localizer["Property"] @Model.PropertyId</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Localizer["Title"]</li>
+    </ol>
+</nav>
+<form method="post" enctype="multipart/form-data" asp-action="Create" asp-route-propertyId="@Model.PropertyId">
+    <label class="btn btn-outline-primary">
+        <i class="fa fa-plus"></i>
+        @Localizer["Create"] <input type="file" name="photo" hidden>
+    </label>
+</form>
+@if (Model.Photos != null && Model.Photos.Any())
+{
+    <div class="row">
+        @foreach (var photo in Model.Photos)
+        {
+        <div class="col-md-4 col-lg-3 mb-4">
+            <a href="@Model.StorageUri/@(photo.ExternalId).jpg">
+                <img class="img-thumbnail" src="@Model.StorageUri/@(photo.ExternalId).jpg" />
+            </a>
+            <form method="post" class="text-center m-2">
+                <button asp-action="Delete"
+                        asp-route-propertyId="@Model.PropertyId"
+                        asp-route-id="@photo.Id"
+                        class="btn btn-sm btn-danger" title="@Localizer["Delete"]" data-confirm="@Localizer["ConfirmDelete"]">
+                    <i class="fa fa-times"></i>
+                </button>
+            </form>
+        </div>
+        }
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">@Localizer["NoData"]</h1>
+    </div>
+}
+@section scripts {
+    <script>
+        $(function () {
+            $('input[type=file]').change(function () {
+                $(this).closest('form').submit();
+            });
+
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+        });
+    </script>
+}

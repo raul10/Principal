@@ -1,0 +1,103 @@
+﻿@model PropertyListModel
+<div class="modal" id="criteriaModal" tabindex="-1" role="dialog" aria-labelledby="criteriaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form asp-action="Index" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="criteriaModalLabel">@Localizer["Title"]</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="@Localizer["Close"]">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label asp-for="Criteria.TransactionType" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="Criteria.TransactionType" asp-items="@Html.GetEnumSelectList<TransactionTypeModel>()" class="form-control">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="Criteria.TransactionType"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Criteria.UserId" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="Criteria.UserId" asp-items="Model.Users" class="form-control">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="Criteria.UserId"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Criteria.PropertyType" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="Criteria.PropertyType" asp-items="@Html.GetEnumSelectList<PropertyTypeModel>()" class="form-control">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="Criteria.PropertyType"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Criteria.CountyId" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="Criteria.CountyId" asp-items="Model.Counties" class="form-control">
+                                <option value=""></option>
+                            </select>
+                            <span asp-validation-for="Criteria.CountyId"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Criteria.CityId" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="Criteria.CityId" asp-items="Model.Cities" class="form-control">
+                                <option value=""></option>
+                            </select>
+                            <span asp-validation-for="Criteria.CityId"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Criteria.PriceFrom" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input asp-for="Criteria.PriceFrom" class="form-control" />
+                                <div class="input-group-append">
+                                    <label asp-for="Criteria.PriceTo" class="input-group-text"></label>
+                                </div>
+                                <input asp-for="Criteria.PriceTo" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Criteria.PriceFrom"></span>
+                            <span asp-validation-for="Criteria.PriceTo"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Criteria.Status" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <select asp-for="Criteria.Status" asp-items="@Html.GetEnumSelectList<PropertyStatusModel>()" class="form-control">
+                                <option></option>
+                            </select>
+                            <span asp-validation-for="Criteria.Status"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Criteria.Telephone" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input asp-for="Criteria.Telephone" class="form-control" />
+                            <span asp-validation-for="Criteria.Telephone"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Criteria.Code" class="col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                            <input asp-for="Criteria.Code" class="form-control" />
+                            <span asp-validation-for="Criteria.Code"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Reset"]</a>
+                    <button type="submit" class="btn btn-primary">@Localizer["Search"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

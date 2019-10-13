@@ -1,0 +1,63 @@
+﻿@model PropertyDetailsModel
+@{
+    ViewData["Title"] = Localizer["Title", Model.Id];
+}
+@Html.DisplayForModel()
+<partial name="_ContactsPartial" model="Model.Contacts" />
+<partial name="_CommentsPartial" model="Model.Comments" />
+@if (Model.Status != PropertyStatusModel.Deleted)
+{
+    <form method="post">
+        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-secondary">
+            @Localizer["Edit"]
+        </a>
+        <a asp-controller="Photo" asp-action="Index" asp-route-propertyId="@Model.Id" class="btn btn-outline-secondary">
+            @Localizer["Photos"]
+        </a>
+        @if (Model.Status == PropertyStatusModel.Active)
+        {
+            <a asp-action="Process" asp-route-id="@Model.Id" data-trigger="Process" class="btn btn-outline-primary">
+                @Localizer["Process"]
+            </a>
+        }
+        else
+        {
+            <button asp-action="Activate" asp-route-id="@Model.Id" class="btn btn-outline-primary" data-confirm="@Localizer["ConfirmActivate"]">
+                @Localizer["Activate"]
+            </button>
+        }
+        <button asp-action="Delete" asp-route-id="@Model.Id" formmethod="post" class="btn btn-outline-danger" data-confirm="@Localizer["ConfirmDelete"]">
+            <i class="fa fa-trash-o"></i>
+            @Localizer["Delete"]
+        </button>
+    </form>
+}
+<div  class="modal fade" id="processModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+@section Badge {
+    <partial name="_StatusPartial" for="Status" />
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_ContactsScriptsPartial" model="new ContactListRequestModel() { PropertyId = Model.Id }" />
+    <partial name="_CommentsScriptsPartial" model="new CommentListRequestModel() { PropertyId = Model.Id }" />
+    <script>
+    $(function () {
+        var processModal$ = $('#processModal');
+        
+        $('[data-trigger=Process]').click(function () {
+            var url = $(this).attr('href');
+            $.get(url, function (data) {
+                $content = $('.modal-content', processModal$).html(data);
+                $.validator.unobtrusive.parse($content);
+                processModal$.modal('show');
+            });
+            return false;
+        });
+    });
+    </script>
+}

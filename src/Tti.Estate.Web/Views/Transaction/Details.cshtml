@@ -1,0 +1,41 @@
+﻿@model TransactionDetailsModel
+@{
+    ViewData["Title"] = Localizer["Title"];
+    bool hasApprovalPermission = (await Authorization.AuthorizeAsync(User, PolicyConstants.TransactionApproval)).Succeeded;
+}
+@Html.DisplayForModel()
+<partial name="_CommentsPartial" model="Model.Comments" />
+<form method="post">
+    @if (Model.Status == TransactionStatusModel.Draft)
+    {
+        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-secondary">
+            @Localizer["Edit"]
+        </a>
+        <button asp-action="Submit" asp-route-id="@Model.Id" formmethod="post" class="btn btn-outline-secondary">
+            @Localizer["Submit"]
+        </button>
+    }
+    @if (Model.Status == TransactionStatusModel.Approving && hasApprovalPermission)
+    {
+        <button asp-action="Approve" asp-route-id="@Model.Id" formmethod="post" class="btn btn-outline-success" data-confirm="@Localizer["ConfirmApprove"]">
+            @Localizer["Approve"]
+        </button>
+        <button asp-action="Reject" asp-route-id="@Model.Id" formmethod="post" class="btn btn-outline-warning">
+            @Localizer["Reject"]
+        </button>
+    }
+    @if (Model.Status != TransactionStatusModel.Approved)
+    {
+        <button asp-action="Delete" asp-route-id="@Model.Id" formmethod="post" class="btn btn-outline-danger" data-confirm="@Localizer["ConfirmDelete"]">
+            <i class="fa fa-trash-o"></i>
+            @Localizer["Delete"]
+        </button>
+    }
+</form>
+@section Badge {
+    <partial name="_StatusPartial" for="Status" />
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_CommentsScriptsPartial" model="new CommentListRequestModel() { TransactionId = Model.Id }" />
+}

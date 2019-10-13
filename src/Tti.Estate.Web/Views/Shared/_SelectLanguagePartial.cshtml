@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+}
+
+    <li class="nav-item dropdown" title="@Localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @if (@requestCulture.RequestCulture.UICulture.Name == "en-US")
+            {
+            <i class="flag-icon flag-icon-us"></i>
+            }
+            else
+            {<i class="flag-icon flag-icon-cr"></i>}
+
+        </a>
+        <div class="dropdown-menu dropdown-menu-right  animated bounceInDown" aria-labelledby="navbarDropdown">
+            <form id="selectLanguage" asp-controller="Home"
+                  asp-action="SetLanguage" asp-route-returnUrl="@returnUrl"
+                  method="post" class="form-horizontal" role="form">
+                @*<label asp-for="@requestCulture.RequestCulture.UICulture.Name">@Localizer["Language:"]</label>*@ <select name="culture" class="custom-select mr-sm-2"
+                                                                                                                           onchange="this.form.submit();"
+                                                                                                                           asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems"></select>
+            </form>
+        </div>
+    </li>
+@*<li class="nav-item dropdown" title="@Localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="flag-icon flag-icon-us"></i>
+    </a>
+    <form id="selectLanguage" asp-controller="Home"
+          asp-action="SetLanguage" asp-route-returnUrl="@returnUrl"
+          method="post" class="form-horizontal" role="form">
+        <div class="dropdown-menu dropdown-menu-right  animated bounceInDown" aria-labelledby="navbarDropdown">
+            @foreach (var i in @requestCulture.RequestCulture.UICulture.Name)
+            {
+                <a class="dropdown-item" href="#" onchange="this.form.submit();" onclick="this.form.submit();"><i class="flag-icon flag-icon-us"></i></a>
+            }
+        </div>
+    </form>
+</li>*@

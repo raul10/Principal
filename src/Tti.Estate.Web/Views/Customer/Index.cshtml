@@ -1,0 +1,29 @@
+﻿@model CustomerListModel
+@{
+    ViewData["Title"] = Localizer["Title"];    
+}
+<partial name="_CriteriaButtonPartial" for="Criteria" />
+<a asp-action="Create" class="btn btn-primary">
+    @Localizer["Create"]
+</a>
+<div class="table-responsive">
+    <table class="table table-hover mt-3">
+        <thead>
+            <tr>
+                <th>@Localizer["Id"]</th>
+                <th>@Localizer["Contact"]</th>
+                <th>@Localizer["User"]</th>
+                <th>
+                    @Localizer["Modified"]
+                    <i class="fa fa-sort-numeric-desc"></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.DisplayFor(x => x.Customers.Items)
+        </tbody>
+    </table>
+</div>
+<partial name="_PaginationPartial" model="Model.Customers" />
+<partial name="_EmptyResultPartial" model="Model.Customers" />
+<partial name="_CriteriaModalPartial" />

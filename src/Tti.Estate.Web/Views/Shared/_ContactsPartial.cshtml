@@ -1,0 +1,38 @@
+@model IEnumerable<ContactListItemModel>
+<fieldset>
+    <legend>
+        @Localizer["Title"]
+        <button data-trigger="AddContact" class="btn btn-sm btn-outline-secondary" type="button">@Localizer["Add"]</button>
+    </legend>
+    @if (Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered mt-2">
+                <thead>
+                    <tr>
+                        <th style="width: 32px;"></th>
+                        <th style="width: 25%;">@Localizer["Telephone"]</th>
+                        <th style="width: 25%;">@Localizer["FirstName"]</th>
+                        <th style="width: 25%;">@Localizer["LastName"]</th>
+                        <th>@Localizer["Email"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @Html.DisplayForModel()
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="text-center p-2">
+            <h5>@Localizer["NoData"]</h5>
+        </div>
+    }
+</fieldset>
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>

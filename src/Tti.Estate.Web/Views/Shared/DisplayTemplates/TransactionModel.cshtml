@@ -1,0 +1,99 @@
+﻿@model TransactionModel
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label asp-for="Date" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">
+                    @Html.DisplayFor(x => x.Date)
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="TransactionType" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">
+                    @Html.DisplayFor(x => x.TransactionType)
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="PropertyId" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">
+                    <a asp-controller="Property" asp-action="Details" asp-route-id="@Model.PropertyId">
+                        @Html.DisplayFor(x => x.PropertyId)
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CustomerId" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">
+                    <a asp-controller="Customer" asp-action="Details" asp-route-id="@Model.CustomerId">
+                        @Html.DisplayFor(x => x.PropertyId)
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Amount" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">
+                    @Html.DisplayFor(x => x.Amount) &euro;
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CompanyPercent" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">
+                    @Html.DisplayFor(x => x.CompanyPercent) %
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="UserPercent" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">
+                    @Html.DisplayFor(x => x.UserPercent) %
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label asp-for="User" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">
+                    @Html.DisplayFor(x => x.User)
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Created" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext text-muted">
+                    @Html.DisplayFor(x => x.Created)
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Modified" class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext text-muted">
+                    @Html.DisplayFor(x => x.Modified)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<fieldset>
+    <legend>@Html.DisplayNameFor(x => x.Description)</legend>
+    <div class="form-group">
+        <p class="form-control-plaintext">
+            @Html.DisplayFor(x => x.Description)
+        </p>
+    </div>
+</fieldset>

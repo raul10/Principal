@@ -1,0 +1,24 @@
+@model ContactListRequestModel
+<script>
+    $(function () {
+        var modal$ = $('#contactModal');
+
+        $('[data-trigger=AddContact]').click(function () {
+            $.get('@Url.Action("Create", "Contact", Model)', function (data) {
+                $content = $('.modal-content', modal$).html(data);
+
+                $.validator.unobtrusive.parse($content);
+                modal$.modal('show');
+            });
+        });
+        $('[data-trigger=EditContact]').click(function () {
+            var url = $(this).attr('formaction');
+            $.get(url, function (data) {
+                $content = $('.modal-content', modal$).html(data);
+
+                $.validator.unobtrusive.parse($content);
+                modal$.modal('show');
+            });
+        });
+    });
+</script>
