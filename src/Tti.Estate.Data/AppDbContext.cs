@@ -40,9 +40,26 @@ namespace Tti.Estate.Data
             builder.Entity<Photo>(ConfigurePhoto);
             builder.Entity<Transaction>(ConfigureTransaction);
             builder.Entity<User>(ConfigureUser);
-
+            builder.Entity<Order>(ConfigureOrder);
             builder.Entity<County>(ConfigureCountyData);
             builder.Entity<City>(ConfigureCityData);
+        }
+
+        private void ConfigureOrder(EntityTypeBuilder<Order> builder) {
+
+            builder.ToTable("Order");
+            builder.HasKey(x => x.Id).
+           ForSqlServerIsClustered();
+
+            builder.Property(x => x.numeroPedido)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            builder.Property(x => x.Observaciones)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            builder.HasOne(x => x.numeroPedido);
         }
 
         private void ConfigureCity(EntityTypeBuilder<City> builder)

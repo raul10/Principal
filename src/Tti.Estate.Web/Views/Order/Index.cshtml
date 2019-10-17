@@ -1,0 +1,29 @@
+﻿@model OrderLisModel
+@{
+    ViewData["Title"] = Localizer["Title"];     
+}
+<partial name="_CriteriaButtonPartial" for="Criteria" />
+<a asp-action="Create" class="btn btn-primary">
+        @Localizer["Create"]
+    </a>
+    <div class="table-responsive">
+        <table class="table table-hover mt-3">
+            <thead>
+                <tr>
+              
+                    <th>@Localizer["codigoOrden"]</th>
+                    <th>@Localizer["Nombre"]</th>
+                    <th>@Localizer["Tienda"]</th>
+                    <th>@Localizer["Estado"]</th>
+                     <th>@Localizer["usuarioCreado"]</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+          
+            </tbody>
+        </table>
+    </div>
+  <partial name="_CriteriaModalPartial" />
+
+    
