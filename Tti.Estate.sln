@@ -15,6 +15,54 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tti.Estate.Data.Tests", "te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{32F76EB3-0E43-4237-A0D1-1A1B84F55318}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publicar", "Publicar", "{0B3B1E46-6847-4914-A220-3CA5D4E51F39}"
+	ProjectSection(SolutionItems) = preProject
+		src\Publicacion.zip = src\Publicacion.zip
+		src\Publicacion\appsettings.Development.json = src\Publicacion\appsettings.Development.json
+		src\Publicacion\appsettings.json = src\Publicacion\appsettings.json
+		src\Publicacion\appsettings.Production.json = src\Publicacion\appsettings.Production.json
+		src\Publicacion\AutoMapper.dll = src\Publicacion\AutoMapper.dll
+		src\Publicacion\AutoMapper.Extensions.Microsoft.DependencyInjection.dll = src\Publicacion\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+		src\Publicacion\dotnet-aspnet-codegenerator-design.dll = src\Publicacion\dotnet-aspnet-codegenerator-design.dll
+		src\Publicacion\libman.json = src\Publicacion\libman.json
+		src\Publicacion\Microsoft.CodeAnalysis.CSharp.Workspaces.dll = src\Publicacion\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+		src\Publicacion\Microsoft.CodeAnalysis.Workspaces.dll = src\Publicacion\Microsoft.CodeAnalysis.Workspaces.dll
+		src\Publicacion\Microsoft.EntityFrameworkCore.Abstractions.dll = src\Publicacion\Microsoft.EntityFrameworkCore.Abstractions.dll
+		src\Publicacion\Microsoft.EntityFrameworkCore.dll = src\Publicacion\Microsoft.EntityFrameworkCore.dll
+		src\Publicacion\Microsoft.EntityFrameworkCore.Relational.dll = src\Publicacion\Microsoft.EntityFrameworkCore.Relational.dll
+		src\Publicacion\Microsoft.EntityFrameworkCore.SqlServer.dll = src\Publicacion\Microsoft.EntityFrameworkCore.SqlServer.dll
+		src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll = src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+		src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll = src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+		src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.dll = src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.dll
+		src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll = src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+		src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll = src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+		src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll = src\Publicacion\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+		src\Publicacion\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll = src\Publicacion\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+		src\Publicacion\Microsoft.WindowsAzure.Storage.dll = src\Publicacion\Microsoft.WindowsAzure.Storage.dll
+		src\Publicacion\NuGet.Frameworks.dll = src\Publicacion\NuGet.Frameworks.dll
+		src\Publicacion\Remotion.Linq.dll = src\Publicacion\Remotion.Linq.dll
+		src\Publicacion\SkiaSharp.dll = src\Publicacion\SkiaSharp.dll
+		src\Publicacion\System.Composition.AttributedModel.dll = src\Publicacion\System.Composition.AttributedModel.dll
+		src\Publicacion\System.Composition.Convention.dll = src\Publicacion\System.Composition.Convention.dll
+		src\Publicacion\System.Composition.Hosting.dll = src\Publicacion\System.Composition.Hosting.dll
+		src\Publicacion\System.Composition.Runtime.dll = src\Publicacion\System.Composition.Runtime.dll
+		src\Publicacion\System.Composition.TypedParts.dll = src\Publicacion\System.Composition.TypedParts.dll
+		src\Publicacion\System.Interactive.Async.dll = src\Publicacion\System.Interactive.Async.dll
+		src\Publicacion\Tti.Estate.Business.dll = src\Publicacion\Tti.Estate.Business.dll
+		src\Publicacion\Tti.Estate.Business.pdb = src\Publicacion\Tti.Estate.Business.pdb
+		src\Publicacion\Tti.Estate.Data.dll = src\Publicacion\Tti.Estate.Data.dll
+		src\Publicacion\Tti.Estate.Data.pdb = src\Publicacion\Tti.Estate.Data.pdb
+		src\Publicacion\Tti.Estate.Infrastructure.dll = src\Publicacion\Tti.Estate.Infrastructure.dll
+		src\Publicacion\Tti.Estate.Infrastructure.pdb = src\Publicacion\Tti.Estate.Infrastructure.pdb
+		src\Publicacion\Tti.Estate.Web.deps.json = src\Publicacion\Tti.Estate.Web.deps.json
+		src\Publicacion\Tti.Estate.Web.dll = src\Publicacion\Tti.Estate.Web.dll
+		src\Publicacion\Tti.Estate.Web.pdb = src\Publicacion\Tti.Estate.Web.pdb
+		src\Publicacion\Tti.Estate.Web.runtimeconfig.json = src\Publicacion\Tti.Estate.Web.runtimeconfig.json
+		src\Publicacion\Tti.Estate.Web.Views.dll = src\Publicacion\Tti.Estate.Web.Views.dll
+		src\Publicacion\Tti.Estate.Web.Views.pdb = src\Publicacion\Tti.Estate.Web.Views.pdb
+		src\Publicacion\web.config = src\Publicacion\web.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
