@@ -124,7 +124,7 @@
     <value>Crear nuevo</value>
   </data>
   <data name="Create Property" xml:space="preserve">
-    <value>Crear propiedad</value>
+    <value>Crear pedido</value>
   </data>
   <data name="Create Transaction" xml:space="preserve">
     <value>Crear transacción</value>
@@ -136,16 +136,16 @@
     <value>Los clientes</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>El portal</value>
+    <value>Inicio</value>
   </data>
   <data name="LAST MONTH" xml:space="preserve">
     <value>ULTIMO MES</value>
   </data>
   <data name="Library" xml:space="preserve">
-    <value>La biblioteca</value>
+    <value>Inicio</value>
   </data>
   <data name="Properties" xml:space="preserve">
-    <value>Los objetos</value>
+    <value>Pedidos</value>
   </data>
   <data name="PROPERTY RESOURCE MANAGEMENT" xml:space="preserve">
     <value>Administrar</value>
@@ -154,7 +154,7 @@
     <value>Administración</value>
   </data>
   <data name="Transactions" xml:space="preserve">
-    <value>Ofertas</value>
+    <value>Pedidos</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Empleados</value>

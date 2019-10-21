@@ -11,30 +11,16 @@
         <thead>
             <tr>
                 <th>@Localizer["TransactionType"]</th>
-                <th>@Localizer["Status"]</th>
-                <th>
-                    @Localizer["Date"]
-                    <i class="fa fa-sort-numeric-desc"></i>
-                </th>
-                <th>@Localizer["Amount"]</th>
-                <th>@Localizer["UserAmount"]</th>
-                <th>@Localizer["CompanyAmount"]</th>
+                
+                 
+                <th>@Localizer["Date"]</th>
+ 
             </tr>
         </thead>
         <tbody>
             @Html.DisplayFor(x => x.Transactions.Items)
         </tbody>
-        @if (Model.Transactions != null && Model.Transactions.TotalItems > 0)
-        {
-            <tfoot>
-                <tr>
-                    <td colspan="3">@Localizer["Totals"]:</td>
-                    <td>@Model.TotalAmount</td>
-                    <td>@Model.TotalUserAmount</td>
-                    <td>@Model.TotalCompanyAmount</td>
-                </tr>
-            </tfoot>
-        }
+   
     </table>
 </div>
 <partial name="_PaginationPartial" model="Model.Transactions" />

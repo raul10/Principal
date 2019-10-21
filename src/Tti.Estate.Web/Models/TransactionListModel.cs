@@ -15,6 +15,7 @@ namespace Tti.Estate.Web.Models
 
         public decimal? TotalCompanyAmount { get; set; }
 
+        public string observaciones { get; set; }
         public PagedResultModel<TransactionListItemModel> Transactions { get; set; }
     }
 }

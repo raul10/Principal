@@ -43,6 +43,12 @@ namespace Tti.Estate.Web.Controllers
         }
 
         [HttpPost]
+        public IActionResult Index(OrderListCriteriaModel criteria)
+        {
+            return RedirectToAction(nameof(Index), criteria);
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Create(OrderModel model)
         {
             if (ModelState.IsValid)

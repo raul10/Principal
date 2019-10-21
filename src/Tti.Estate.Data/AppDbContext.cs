@@ -29,6 +29,8 @@ namespace Tti.Estate.Data
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<City>(ConfigureCity);
@@ -51,7 +53,7 @@ namespace Tti.Estate.Data
             builder.HasKey(x => x.Id).
            ForSqlServerIsClustered();
 
-            builder.Property(x => x.numeroPedido)
+                builder.Property(x => x.numeroPedido)
                 .IsRequired()
                 .HasMaxLength(50);
 
@@ -59,7 +61,7 @@ namespace Tti.Estate.Data
                 .IsRequired()
                 .HasMaxLength(50);
 
-            builder.HasOne(x => x.numeroPedido);
+            //builder.HasOne(x => x.numeroPedido);
         }
 
         private void ConfigureCity(EntityTypeBuilder<City> builder)

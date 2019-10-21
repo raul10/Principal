@@ -124,7 +124,7 @@
     <value>Crear</value>
   </data>
   <data name="Id" xml:space="preserve">
-    <value>Código</value>
+    <value>Numero Pedido</value>
   </data>
   <data name="Modified" xml:space="preserve">
     <value>Modificado</value>
@@ -139,6 +139,6 @@
     <value>Estado</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Los objetos</value>
+    <value>Pedidos</value>
   </data>
 </root>

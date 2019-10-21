@@ -6,7 +6,7 @@ $(function() {
     function handlelogobg() {
         $('.theme-color .theme-item .theme-link').on("click", function() {
             var logobgskin = $(this).attr("data-logobg");
-            $('.topbar .top-navbar .navbar-header').attr("data-logobg", logobgskin);
+            $('.topbar .top-navbar .navbar-header').attr("data-logobg");
         });
     };
     handlelogobg();

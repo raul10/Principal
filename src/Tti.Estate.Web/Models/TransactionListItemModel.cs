@@ -9,10 +9,12 @@ namespace Tti.Estate.Web.Models
 
         public TransactionTypeModel TransactionType { get; set; }
 
-        public TransactionStatusModel Status { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
+        public TransactionStatusModel Status { get; set; }
+
+   
 
         public decimal Amount { get; set; }
 

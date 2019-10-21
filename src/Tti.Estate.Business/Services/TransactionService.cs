@@ -49,14 +49,14 @@ namespace Tti.Estate.Business.Services
             var filterSpecification = new TransactionFilterSpecification(
                 userId: userId,
                 transactionType: transactionType,
-                status: status,
+               
                 dateFrom: dateFrom,
                 dateTo: dateTo
             );
             var filterPaginatedSpecification = new TransactionFilterPaginatedSpecification(pageIndex * pageSize, pageSize,
                 userId: userId,
                 transactionType: transactionType,
-                status: status,
+                
                 dateFrom: dateFrom,
                 dateTo: dateTo
             );

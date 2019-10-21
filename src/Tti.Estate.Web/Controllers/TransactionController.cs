@@ -39,20 +39,16 @@ namespace Tti.Estate.Web.Controllers
             var transactions = await _transactionService.ListAsync(pageIndex: pageIndex, pageSize: pageSize,
                 userId: criteria.UserId,
                 transactionType: (TransactionType?)criteria.TransactionType,
-                status: (TransactionStatus?)criteria.Status,
-                dateFrom: criteria.DateFrom,
-                dateTo: criteria.DateTo
+                dateFrom: criteria.DateFrom
             );
 
             var pagedModel = _mapper.Map<PagedResultModel<TransactionListItemModel>>(transactions);
 
             var model = new TransactionListModel()
             {
-                Criteria = (criteria.UserId.HasValue || criteria.TransactionType.HasValue || criteria.Status.HasValue || criteria.DateFrom.HasValue || criteria.DateTo.HasValue) ? criteria : null,
-                TotalAmount = pagedModel.Items.Any() ? pagedModel.Items.Sum(x => x.Amount) : (decimal?)null,
-                TotalUserAmount = pagedModel.Items.Any() ? pagedModel.Items.Sum(x => x.UserAmount) : (decimal?)null,
-                TotalCompanyAmount = pagedModel.Items.Any() ? pagedModel.Items.Sum(x => x.CompanyAmount) : (decimal?)null,
+               
                 Transactions = pagedModel,
+
                 Users = _mapper.Map<IEnumerable<SelectListItem>>(await _userRepository.ListAsync(new UserFilterSpecification(onlyActive: true)))
             };
 
@@ -81,18 +77,20 @@ namespace Tti.Estate.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(TransactionModel model)
         {
-            if (ModelState.IsValid)
-            {
+
+            model.PropertyId = 2;
+            model.CustomerId = 1;
+            model.Amount = 0;
+            model.CompanyPercent = 0;
+            model.UserPercent = 0;
+            model.Date = DateTime.Now;
+            
                 var transaction = _mapper.Map<Transaction>(model);
 
                 await _transactionService.CreateAsync(transaction);
 
                 return RedirectToAction("Details", new { id = transaction.Id });
-            }
-
-            await PrepareModelAsync(model);
-
-            return View(model);
+           
         }
 
         [HttpGet]

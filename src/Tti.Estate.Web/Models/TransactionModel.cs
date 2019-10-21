@@ -7,6 +7,10 @@ namespace Tti.Estate.Web.Models
 {
     public class TransactionModel
     {
+
+
+        public int id { set; get; }
+
         [Display(Name = "User")]
         [Required(ErrorMessage = "Required")]
         public long? UserId { get; set; }
@@ -19,7 +23,7 @@ namespace Tti.Estate.Web.Models
         
         [Display(Name = "TransactionType")]
         [Required(ErrorMessage = "Required")]
-        public TransactionTypeModel? TransactionType { get; set; }
+        public  int TransactionType { get; set; }
         
         [Display(Name = "Property")]
         [Required(ErrorMessage = "Required")]

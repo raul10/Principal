@@ -151,7 +151,7 @@
     <value>Estado</value>
   </data>
   <data name="TransactionType" xml:space="preserve">
-    <value>Tipo de transacción</value>
+    <value>Numero Pedido</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>Usuario</value>
